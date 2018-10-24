@@ -26,9 +26,12 @@
         service.getSearchData = function(reqParams){
     
             console.log("Youtube Service Called");
-            
-            //Using default 'order' in API as 'relevance' since sorting is to be done on client side.(Specified Requirement)
-            //Other params are provided by reqParams
+
+            /* 
+                Using default 'order' in API as 'relevance' for fetching result.
+                Sorting is to be done on client side on this result.(Specified Requirement)
+                Accepts reqParams which contains parameters of API call
+            */
             var response = $http({
                 method: 'GET',
                 url: YoutubeApiBasePath,

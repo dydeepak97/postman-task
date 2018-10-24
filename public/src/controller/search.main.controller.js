@@ -81,15 +81,12 @@
 
         //Called when user clicks Sort button
         $ctrl.sortHandler = function(){
-            console.log("resultList before sort : ", $ctrl.resultList);
             if ($ctrl.sortBy == "name"){
                 $ctrl.resultList = $ctrl.resultList.sort($ctrl.byName);     //For sorting by Name
             }
             else if($ctrl.sortBy == "date"){
                 $ctrl.resultList = $ctrl.resultList.sort($ctrl.byDate);    //For sorting by Date
-            }
-            console.log("resultList after sort : ", $ctrl.resultList);
-            console.log("PLS");         
+            }        
         }
 
         /*Function to call Youtube Service 

@@ -1,7 +1,7 @@
 (function(){
 
   /* 
-    For routing application states. 
+    For routing app states. 
     Not really required since this app has only one state but useful if more states are added.
   */
 
