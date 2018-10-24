@@ -5,6 +5,8 @@ Lets you search for video using Youtube Data API v3.
 
 Video Result can be sorted based on name or publish date in ascending or descending order.
 
+Maximum result items in a search can be set to 5, 10, 25, 50.
+
 Used AngularJS(1.x) for client-side app.
 
 App is run on node.js server to prevent 403 and CORS error.
