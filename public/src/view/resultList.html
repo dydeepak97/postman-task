@@ -1,0 +1,8 @@
+<div>
+    <ul>
+        <li ng-repeat="item in $ctrl.result">
+                {{item | json }}
+        </li>
+    </ul>
+    <p ng-hide="$ctrl.result.length" > Result Empty </p>>
+</div>

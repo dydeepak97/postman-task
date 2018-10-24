@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="searchApp" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- <link rel="stylesheet" type="text/css" media="screen" href="lib/materialize/css/materialize.min.css" /> -->
+</head>
+<body>
+        <ui-view>
+                <h1>This is UI_VIEW</h1>
+        </ui-view>
+
+
+    <!-- Libs -->
+    <script src="lib/angular.min.js"></script>
+    <script src="lib/angular-ui-router.min.js"></script>
+    <script src="lib/materialize/js/materialize.min.js"></script>
+
+    <!-- Modules -->
+    <script src="src/model/ApiHandler/ApiHandler.module.js"></script>
+    <script src="src/searchApp.js"></script>
+
+    <!-- Router -->
+    <script src="src/router.js"></script>
+
+    <!-- Services -->
+    <script src="src/model/ApiHandler/youtubeService.js"></script>
+
+    <!-- Controllers -->
+    <script src="src/controller/search.main.controller.js"></script>
+
+    <!-- Components -->
+    <script src="src/controller/resultList.component.js"></script>
+  
+</body>
+</html>

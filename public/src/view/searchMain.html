@@ -1,0 +1,25 @@
+<h1>It's homepage. Search Bar will appear here.</h1>
+<div class="">
+    <input ng-model="searchBar.searchTerm" />
+    <select ng-model="searchBar.sortBy" name="sortBy" id="sortBy">
+        <option value="name">Name</option>
+        <option value="date">Publish Date</option>
+    </select>
+    <select ng-model="searchBar.maxItems" name="maxItems" id="maxItems">
+        <option value="5">5</option>
+        <option value="10">10</option>
+        <option value="25">25</option>
+        <option value="50">50 :o</option>
+    </select>
+    <select ng-model="searchBar.order" name="order" id="order">
+            <option value="asc" >Ascending</option>
+            <option value="dsc" >Desceding</option>
+    </select>
+    <button class="btn" ng-click="searchBar.searchHandler()">Search</button>
+    <button class="btn" ng-click="searchBar.sortHandler()">Sort</button>
+</div>
+<br>
+
+       
+        <!-- {{topSongsMenu.top5}} -->
+ <result-list  result = "searchBar.resultList"></result-list>
