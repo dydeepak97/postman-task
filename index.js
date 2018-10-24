@@ -10,7 +10,7 @@ var port = process.env.PORT || 8080;
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-app.listen(PORT,'localhost', function(){
+app.listen(port,'localhost', function(){
     console.log("Listening...");
     
 });
