@@ -1,15 +1,22 @@
 (function(){
 
+    /* 
+        Youtube service
+        Part of ApiHandler Module
+        Youtube API calling function is available thorugh this service.
+        Uses $http service provided by AngularJs
+    */
+
     'use strict';
     
     console.log("Youtube Service Created");
     
     angular.module('ApiHandler')
-    .service('youtubeService', youtubeService)
-    .constant('YoutubeApiBasePath', 'https://www.googleapis.com/youtube/v3/search')
-    .constant('YoutubeApiKey', 'AIzaSyDZG3SLq7wiOW7AOct9NTeExXyUXKn2xwk');  //There are better ways to hide api key but...
+        .service('youtubeService', youtubeService)
+        .constant('YoutubeApiBasePath', 'https://www.googleapis.com/youtube/v3/search')
+        .constant('YoutubeApiKey', 'AIzaSyDZG3SLq7wiOW7AOct9NTeExXyUXKn2xwk');  //There are better ways to hide api key but...
     
-    youtubeService.$inject = ['$http' , 'YoutubeApiBasePath', 'YoutubeApiKey'];
+    youtubeService.$inject = ['$http' , 'YoutubeApiBasePath', 'YoutubeApiKey'];     
     
     function youtubeService($http, YoutubeApiBasePath, YoutubeApiKey){
         console.log("Youtube Service Instance Running");
@@ -21,7 +28,7 @@
             console.log("Youtube Service Called");
             
             //Using default 'order' in API as 'relevance' since sorting is to be done on client side.(Specified Requirement)
-            //Other params are provided
+            //Other params are provided by reqParams
             var response = $http({
                 method: 'GET',
                 url: YoutubeApiBasePath,

@@ -1,6 +1,11 @@
 (function(){
 
-    'use strict'
+  /* 
+    For routing application states. 
+    Not really required since this app has only one state but useful if more states are added.
+  */
+
+  'use strict'
     
     console.log("Router Started");
     
@@ -11,7 +16,7 @@
     
     function RoutesConfig( $stateProvider, $urlRouterProvider ){
     
-      //default
+      //default state
       $urlRouterProvider.otherwise('/search');
     
       console.log("RoutesConfig Working");
@@ -23,11 +28,6 @@
           templateUrl: 'src/view/searchMain.html',
           controller:'searchMainController',
           controllerAs: 'searchBar'
-        //   resolve: {
-        //     videoList : ['youtubeService', function(youtubeService){
-        //       return youtubeService.getSearchData('ed sheeran');
-        //     }]
-        //   }
         });
     }
     

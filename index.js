@@ -1,21 +1,24 @@
+/* 
+    App runs on node.js server to prevent 403 error duing API calls.
+    No backend logic. 
+    The server just sends a static html file and no further interaction with server.
+    The main app runs on client side.
+*/
+
+
 var express = require('express');
-
 var path = require('path');
-// var bodyParser = require('body-parser');
 var app = express();
-var port = process.env.PORT || 8080;
+var port = process.env.PORT || 8080;       //Dynamic port for heroku deployment
 
-// app.use(bodyParser.json());
-// app.use(bodyParser.urlencoded({extended: false}));
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-app.listen(port,'localhost', function(){
-    console.log("Listening...");
-    
+app.listen(port, function(){
+    console.log(port + " Port Listening...");
 });
-/* GET home page. */
+// GET home page.
 app.get('/*', function(req, res, next) {
-  //Path to your main file
+  //Path to main index.html file
   res.status(200).sendFile(path.join(__dirname+'../public/index.html')); 
 });

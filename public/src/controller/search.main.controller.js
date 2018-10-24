@@ -1,11 +1,20 @@
 (function(){
 
+    /* 
+        This is the main controller for the state.
+        Used for getting user input from html page and creating a reqParms obj,
+        calling the API function through service,
+        storing the result of API call,
+        sorting the result array,
+        sending result array data to component for displaying.
+    */
+
     'use strict';
     
     angular.module('searchApp')
     .controller('searchMainController', searchMainController);
     
-    searchMainController.$inject = ['youtubeService'];
+    searchMainController.$inject = ['youtubeService']; //Service injected to handle API calls
     
     function searchMainController(youtubeService){
         var $ctrl = this;
@@ -13,10 +22,15 @@
         //Parameters object
         $ctrl.reqParams = [];
 
-        //Initializing Default values.
+        //Var for status of errors
+        $ctrl.err = false;
 
+        //Initializing Default values for sort
+        //Default sorting is by name in ascending order
         $ctrl.sortBy = "name";
         $ctrl.order = "asc";
+
+        //Default values for req params
         $ctrl.reqParams.searchTerm = "";
         $ctrl.reqParams.maxItems = "10";
         $ctrl.reqParams.searchType = "video"
@@ -39,7 +53,7 @@
             if(a.snippet.title < b.snippet.title){
                 return (-1 * r);
             }
-                return 0;
+            return 0;
         }
 
         //Compare function to compare publish dates
@@ -62,19 +76,17 @@
         
         //Called when user clicks search button
         $ctrl.searchHandler = function(){
-            $ctrl.getYoutubeSearch($ctrl.reqParams);
-            console.log("Damn");
-            
+            $ctrl.getYoutubeSearch($ctrl.reqParams);    //send API params to the API handling function.
         }
 
         //Called when user clicks Sort button
         $ctrl.sortHandler = function(){
             console.log("resultList before sort : ", $ctrl.resultList);
             if ($ctrl.sortBy == "name"){
-                $ctrl.resultList = $ctrl.resultList.sort($ctrl.byName);
+                $ctrl.resultList = $ctrl.resultList.sort($ctrl.byName);     //For sorting by Name
             }
             else if($ctrl.sortBy == "date"){
-                $ctrl.resultList = $ctrl.resultList.sort($ctrl.byDate);    
+                $ctrl.resultList = $ctrl.resultList.sort($ctrl.byDate);    //For sorting by Date
             }
             console.log("resultList after sort : ", $ctrl.resultList);
             console.log("PLS");         
@@ -85,17 +97,19 @@
             Populates the resultList array when promise is resolved.
         */
         $ctrl.getYoutubeSearch = function(reqParams){
+           
             console.log("Search button clicked");
-            let response = youtubeService.getSearchData(reqParams);
-        
-            //FOR TEST, Remove later
-            console.log("Youtube Response JSON:" , response);
+           
+            let response = youtubeService.getSearchData(reqParams);      //API function called.
             
             response.then(function(result){
                 console.log(result.data.items[0].snippet.channelTitle);
-                $ctrl.resultList = result.data.items;
-                $ctrl.sortHandler(); //Sorting by default sort params
-            }).catch(function(error){
+                $ctrl.resultList = result.data.items;           //Sorting by default sort params
+                $ctrl.sortHandler();
+                $ctrl.err = false;                                 
+            })
+            .catch(function(error){
+                $ctrl.err = true;
                 console.log("WTF : ", error);
                 return "ERROR";
             });
