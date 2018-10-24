@@ -14,7 +14,7 @@ var port = process.env.PORT || 8080;       //Dynamic port for heroku deployment
 app.use(express.static(path.join(__dirname, 'public')));
 
 
-app.listen(port, function(){
+app.listen(port, '0.0.0.0',  function(){
     console.log(port + " Port Listening...");
 });
 // GET home page.
