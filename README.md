@@ -28,6 +28,7 @@ To run the app follow the procedure below. ( Or you can just go to this link -> 
 - App is now running.
 
 The code for api calls is available in ./public/src/model/ApiHandler/youtubeService.js
+
 This Service is used by the code in ./public/src/controller/search.main.controller.js
 
 App is made according to the requirements specified along with few assumptions.
