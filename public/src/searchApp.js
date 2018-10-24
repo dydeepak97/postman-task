@@ -1,9 +1,9 @@
 (function(){
 
-'use strict';
+    'use strict';
 
-console.log("Main Module Started");
+    console.log("Main Module Started");
 
-angular.module('searchApp', ['ui.router', 'ApiHandler'] )
+    angular.module('searchApp', ['ui.router', 'ApiHandler'] )
 
 })();

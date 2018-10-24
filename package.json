@@ -1,0 +1,22 @@
+{
+  "name": "postman-task",
+  "version": "1.0.0",
+  "description": "Small exercise for intern hiring.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dydeepak97/postman-task.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/dydeepak97/postman-task/issues"
+  },
+  "homepage": "https://github.com/dydeepak97/postman-task#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}

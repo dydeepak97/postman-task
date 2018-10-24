@@ -9,14 +9,19 @@
     
     function searchMainController(youtubeService){
         var $ctrl = this;
-        $ctrl.searchTerm = "";
+       
+        //Parameters object
+        $ctrl.reqParams = [];
 
         //Initializing Default values.
-        $ctrl.sortBy = "date";
-        $ctrl.order = "dsc";
-        $ctrl.maxItems = "10";
-        $ctrl.searchType = "video"
+
+        $ctrl.sortBy = "name";
+        $ctrl.order = "asc";
+        $ctrl.reqParams.searchTerm = "";
+        $ctrl.reqParams.maxItems = "10";
+        $ctrl.reqParams.searchType = "video"
         
+        //To store List of videos
         $ctrl.resultList = [];
 
         //Compare function to compare names
@@ -57,7 +62,9 @@
         
         //Called when user clicks search button
         $ctrl.searchHandler = function(){
-            $ctrl.getYoutubeSearch($ctrl.searchTerm, $ctrl.maxItems, $ctrl.searchType );
+            $ctrl.getYoutubeSearch($ctrl.reqParams);
+            console.log("Damn");
+            
         }
 
         //Called when user clicks Sort button
@@ -74,12 +81,12 @@
         }
 
         /*Function to call Youtube Service 
-            Stores the result in a promise. 
+            Stores the result in a promise obj response. 
             Populates the resultList array when promise is resolved.
         */
-        $ctrl.getYoutubeSearch = function(searchTerm , maxItems, searchType){
+        $ctrl.getYoutubeSearch = function(reqParams){
             console.log("Search button clicked");
-            let response = youtubeService.getSearchData(searchTerm , maxItems, searchType);
+            let response = youtubeService.getSearchData(reqParams);
         
             //FOR TEST, Remove later
             console.log("Youtube Response JSON:" , response);
@@ -87,13 +94,13 @@
             response.then(function(result){
                 console.log(result.data.items[0].snippet.channelTitle);
                 $ctrl.resultList = result.data.items;
+                $ctrl.sortHandler(); //Sorting by default sort params
             }).catch(function(error){
                 console.log("WTF : ", error);
                 return "ERROR";
             });
         };
-    }
+    }   
     
-    
-    })();
+})();
     

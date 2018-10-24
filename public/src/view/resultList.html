@@ -1,9 +1,23 @@
 <div>
-    <ul>
+    <ul ng-show="$ctrl.result.length" >
         <li ng-repeat="item in $ctrl.result">
-            <div class="card">{{item | json }}</div>
+            <div class="card horizontal">
+                <div class="card-image">
+                    <img ng-src="{{item.snippet.thumbnails.medium.url}}" alt="img">
+                </div>
+                <div class="card-stacked">
+                    <div class="card-content">
+                      <p><span class="red-text bold">Title:</span> {{item.snippet.title}}</p>
+                      <p><span class="red-text bold">Publish Date:</span> {{item.snippet.publishedAt | date:'medium' }}</p>
+                      <p><span class="red-text bold">Channel:</span> {{item.snippet.channelTitle}}</p>
+                    </div>
+                    <div class="card-action">
+                      <a href="https://www.youtube.com/watch?v={{item.id.videoId}}"">Link to Video</a>
+                    </div>
+                </div>
+            </div>
                 
         </li>
     </ul>
-    <p ng-hide="$ctrl.result.length" > Result Empty </p>>
+    <p ng-hide="$ctrl.result.length" > Result Empty </p>
 </div>
