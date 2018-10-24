@@ -29,20 +29,7 @@
         //     }]
         //   }
         });
-        // .state('songList', {
-        //   ulr:'/songList',
-        //   templateUrl: 'ht/songList.html',
-        //   controller: 'listController',
-        //     controllerAs: 'list',
-        //   //resolve:
-        // })
-        // .state('player', {
-        //   ulr:'/player',
-        //   templateUrl: 'ht/player.html',
-        //   controller: 'playerController',
-        //     controllerAs: 'player',
-        //   //resolve:
-        // });
+      
     
     }
     

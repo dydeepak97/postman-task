@@ -1,24 +1,42 @@
 <h1>It's homepage. Search Bar will appear here.</h1>
-<div class="">
-    <input ng-model="searchBar.searchTerm" />
-    <select ng-model="searchBar.sortBy" name="sortBy" id="sortBy">
-        <option value="name">Name</option>
-        <option value="date">Publish Date</option>
-    </select>
-    <select ng-model="searchBar.maxItems" name="maxItems" id="maxItems">
-        <option value="5">5</option>
-        <option value="10">10</option>
-        <option value="25">25</option>
-        <option value="50">50 :o</option>
-    </select>
-    <select ng-model="searchBar.order" name="order" id="order">
+<div class="row">
+    <div class="input-field m12 s12 l12">
+        <input ng-model="searchBar.searchTerm" type="text" id="searchTerm" required />
+        <label for="searchTerm">Type here to search</label>
+    </div>
+    <div class="input-field m12 s12 l12">
+        <button class="btn-large red " ng-click="searchBar.searchHandler()">Search</button>
+    </div>    
+    <div class="input-field col s6 m3 l3">
+        <select ng-model="searchBar.sortBy" name="sortBy" id="sortBy" class="browser-default">
+                <option value="name">Name</option>
+                <option value="date">Publish Date</option>
+        </select>
+        <!-- <label for="sortBy" class="label">Sort By:</label> -->
+    </div>
+
+    <div class="input-field col s6 m3 l3">
+        <select ng-model="searchBar.maxItems" name="maxItems" id="maxItems" class="browser-default">
+            <option value="5">5</option>
+            <option value="10">10</option>
+            <option value="25">25</option>
+            <option value="50">50 :o</option>
+        </select>
+    </div>
+    <div class="input-field col s6 m3 l3">
+        <select ng-model="searchBar.order" name="order" id="order" class="browser-default">
             <option value="asc" >Ascending</option>
             <option value="dsc" >Desceding</option>
-    </select>
-    <button class="btn" ng-click="searchBar.searchHandler()">Search</button>
-    <button class="btn" ng-click="searchBar.sortHandler()">Sort</button>
+        </select>
+    </div>
+
+    <div class="input-fieldm21 col s6 m3 l3">
+        <button class="btn" ng-click="searchBar.sortHandler()">Sort</button>
+    </div>
 </div>
 <br>
+
+
 
        
         <!-- {{topSongsMenu.top5}} -->
