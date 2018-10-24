@@ -20,5 +20,5 @@ app.listen(port, '0.0.0.0',  function(){
 // GET home page.
 app.get('/*', function(req, res, next) {
   //Path to main index.html file
-  res.status(200).sendFile(path.join(__dirname+'../public/index.html')); 
+  res.status(200).sendFile(path.join(__dirname+'/public/index.html')); 
 });
